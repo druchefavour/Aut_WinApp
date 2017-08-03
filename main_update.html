@@ -20,6 +20,8 @@
 
       <!--Script to validate email -->
       <script type='text/javascript' src='js/validateEmail.js'></script>
+
+      <script type='text/javascript' src='js/postEmail.js'></script>
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
       <nav class="navbar navbar-default navbar-fixed-top">
@@ -113,6 +115,7 @@
 
             <div class="panel-heading"><h2>Email</h2></div>
               <div class="panel-body">
+              <div id="sent_results"></div>
               <form class="form-horizontal" autocomplete="on" name="sendInvoiceForm" class="sendInvoiceForm" method="post" onsubmit="return validateForm()"  action="sendEmail.php">
 
                <!--div class="row"-->
