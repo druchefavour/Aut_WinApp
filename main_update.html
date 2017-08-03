@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Crane World Wide Logistics Invoice Processing</title>
+      
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/style_bs.css">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+      <!--Script to validate email -->
+      <script type='text/javascript' src='js/validateEmail.js'></script>
+    </head>
+    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+         <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+            <img src="css/image/logo.png" class="img-rounded" alt="Cinque Terre" width="364" height="96">
+         </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html">Login</a></li>
+            </ul>
+          </div>
+         </div>
+
+      </nav>
+        <div class="jumbotron text-center">
+
+          <h2>Please Complete This Form and Hit the Submit Button</h2>
+          <h3><em> Cancel To Start Afresh</em></h3>
+        </div>
+
+        <div class="container-fluid">
+          <h2 class="text-center">CONTACT</h2>
+          <div class="row">
+            <div class="col-sm-5">
+              <p>Contact us</p>
+              <p><span class="glyphicon glyphicon-map-marker"></span> 1500 Rankin US</p>
+              <p><span class="glyphicon glyphicon-phone"></span> +01 281-233-8768</p>
+              <p><span class="glyphicon glyphicon-envelope"></span> angus.ogubuike@craneww.com</p> 
+            </div>
+            <div class="col-sm-7">
+              <div class="panel panel-default">
+              <div class="panel-heading"><h2>Invoice Information</h2></div>
+              <div class="panel-body">
+              
+              <!--Form to send invoice information to the database -->
+              <form class="form-horizontal" autocomplete="on">
+               <div class="row">
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="inputSuccess2">*Client Code #:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="client-code" placeholder="Enter Client Code" required>
+                </div>
+                <div class="col-sm-2">
+                 <a href="#" data-toggle="tooltip" title="Client Code #: Kewill Customer Code Number"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+               </div>
+               <!--div class="row"-->
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="inputSuccess2">*Invoice #:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="invoice-number" placeholder="Enter Invoice Number" required>
+                </div>
+                <div class="col-sm-2">
+                 <a href="#" data-toggle="tooltip" title="Invoice #: Kewill Invoice Number"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+               </div>
+               <!--div class="row"-->
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="inputSuccess2">*AWB or BL #:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="AWB-number" placeholder="Enter AWB or BL Number" required>
+                </div>
+                <div class="col-sm-2">
+                 <a href="#" data-toggle="tooltip" title="AWB or BL #: Kewill AWB or BL Number"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+               </div>
+               <!--div class="row"-->
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="photo">*Billing Packet:</label>
+                <div class="col-sm-8">
+                  <input type="file" class="form-control" id="billing-packet" placeholder="Upload billing Packet" required multiple>
+                </div>
+                <div class="col-sm-2">
+                 <a href="#" data-toggle="tooltip" title="Billing Packet: Kewill Billing Packet"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+               </div>
+               <button type="button" class="btn-lg btn-primary">Submit</button>
+               <button type="button" class="btn-lg btn-primary">Cancel</button>
+              </form>
+              </div>
+            </div>
+           
+            <!-- Form to send e-mail to clients-->
+
+            <div class="panel-heading"><h2>Email</h2></div>
+              <div class="panel-body">
+              <form class="form-horizontal" autocomplete="on" name="sendInvoiceForm" class="sendInvoiceForm" method="post" onsubmit="return validateForm()"  action="sendEmail.php">
+
+               <!--div class="row"-->
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">*From:</label>
+                <div class="col-sm-8">
+                  <input type="e-mail" class="form-control" id="email-from" name="emailFrom" placeholder="Enter your email: someone@email.com" required>
+                </div>
+                <div class="col-sm-2">
+                 <a href="#" data-toggle="tooltip" title="Enter all email addresses to be in the From field on this email, individually separated by a semicolon. (Example:  Mike@abc.com; Bob@abc.com; Jill@abc.com)"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+               </div>
+
+               <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">*To:</label>
+                <div class="col-sm-8">
+                  <input type="e-mail" class="form-control" id="email-to" name="emailTo" placeholder="Enter recipient's email: someone@email.com" required>
+                </div>
+                <div class="col-sm-2">
+                 <a href="#" data-toggle="tooltip" title="Enter all email addresses to be in the TO field on this email, individually separated by a semicolon. (Example:  Mike@abc.com; Bob@abc.com; Jill@abc.com)"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+               </div>
+
+               <!--div class="row"-->
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">CC:</label>
+                <div class="col-sm-8">
+                  <input type="e-mail" class="form-control" id="email-cc" placeholder="someone@email.com">
+                </div>
+                <div class="col-sm-2">
+                 <a href="#" data-toggle="tooltip" title="Enter all email addresses to be CC'd on this email, individually separated by a semicolon.  (Example:  Mike@abc.com; Bob@abc.com; Jill@abc.com)"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+               </div>
+               <!--div class="row"-->
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="email">BCC:</label>
+                <div class="col-sm-8">
+                  <input type="e-mail" class="form-control" id="email-bcc" placeholder="someone@email.com">
+                </div>
+                <div class="col-sm-2">
+                 <a href="#" data-toggle="tooltip" title="AEnter all email addresses to be BCC'd on this email,  individually separated by a semicolon. (Example:  Mike@abc.com; Bob@abc.com; Jill@abc.com)"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+               </div>
+                <!--div class="row"-->
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="Subject">*Subject:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="Subject" name="Subject" rows='5' placeholder="Write the Email's Subject Here" required>
+                </div>
+                <div class="col-sm-2">
+                 <a href="#" data-toggle="tooltip" title="Subject: Email subject"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+               </div>
+               <!--div class="row"-->
+                <div class="form-group">
+                  <label class="control-label col-sm-2" for="comment">*Body:</label>
+                <div class="col-sm-8">
+                  <textarea class="form-control" id="comment" name="Message" rows='5' placeholder="Write Email Text Here" required></textarea>
+                </div>
+                <div class="col-sm-2">
+                 <a href="#" data-toggle="tooltip" title="Body: Email body"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+               </div>
+               <div class="form-group">
+                  <label class="control-label col-sm-2" for="Attachment">*Invoice (billing Packet):</label>
+                <div class="col-sm-8">
+                  <input type="file" class="form-control" id="invoice" placeholder="Upload invooice" required multiple>
+                </div>
+                <div class="col-sm-2">
+                 <a href="#" data-toggle="tooltip" title="Attach invoice to be send to the client"><span class="glyphicon glyphicon-info-sign"></span></a>
+                </div>
+               </div>
+               <button type="button" class="btn-lg btn-primary">Send</button>
+               <button type="button" class="btn-lg btn-primary">Cancel</button>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>          
+    </body>
+  </html>
